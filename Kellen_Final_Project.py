@@ -140,11 +140,13 @@ def sent_app(name, user_income, user_education, user_parent, user_married,
     except ValueError:
         st.error("Please enter all information.")
 
-st.title("Are you a LinkedIn User?")
-
-st.write("Take this survey and let it predict if you are among the more than 1 billion users of LinkedIn.")
-
-st.write("Information entered is not stored and will be cleared when you exit the app.")
+col1, col2 = st.columns([24, 8])
+with col2:
+    st.image("app_logo.jpeg")
+with col1:
+    st.title("Are you a LinkedIn User?")
+    st.write("Take this survey and let it predict if you are among the more than 1 billion users of LinkedIn.")
+    st.write("Information entered is not stored and will be cleared when you exit the app.")
 
 name = st.text_input("What is your name? (Optional)", value = "")    
 user_income = st.selectbox("What is your current income level?", 
