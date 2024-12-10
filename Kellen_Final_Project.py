@@ -1,4 +1,4 @@
-#### Set-Up -------------------
+#### Set-Up ------------------------
 
 # Import Packages
 import streamlit as st
@@ -12,7 +12,7 @@ from sklearn.metrics import confusion_matrix
 # Read in data
 s = pd.read_csv("social_media_usage.csv")
 
-#### Define Functions----------
+#### Define Functions---------------
 
 # clean_sm function: creates a binary variable
 def clean_sm(x) : # x may be used on dataframe in format df["column"]
@@ -30,7 +30,7 @@ def model1_predict(income, education, parent, married, female, age) :
     print(f"Predicted class: {pred_class[0]}") # 0 = Not LinkedIn User, 1 = LinkedIn User
     print(f"Probability that this person is a LinkedIn User: {round(pred_prob[0][1], 4)}")
 
-#### Create training dataset---
+#### Create training dataset--------
 
 # Create dataframe "ss"
 ss = pd.DataFrame({
@@ -45,7 +45,7 @@ ss = pd.DataFrame({
 # Drop missing values 
 ss = ss.dropna()
 
-#### Train Model --------------
+#### Train Model -------------------
 
 # Create target (y) and feature(s) selection (X)
 y = ss["sm_li"]
@@ -63,7 +63,8 @@ model1 = LogisticRegression(class_weight = "balanced")
 # Fit model to training data
 model1.fit(X.values, y)
 
-#### App?
+
+#### Streamlit Application Code ----
 
 def sent_app(name, user_income, user_education, user_parent, user_married,
              user_female, user_age) :
@@ -138,6 +139,12 @@ def sent_app(name, user_income, user_education, user_parent, user_married,
 
     except ValueError:
         st.error("Please enter all information.")
+
+st.title("Are you a LinkedIn User?")
+
+st.write("Take this survey and let it predict if you are among the more than 1 billion users of LinkedIn.")
+
+st.write("Information entered is not stored and will be cleared when you exit the app.")
 
 name = st.text_input("What is your name? (Optional)", value = "")    
 user_income = st.selectbox("What is your current income level?", 
