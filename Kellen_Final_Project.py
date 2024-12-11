@@ -148,10 +148,10 @@ with col1:
     st.write("Take this survey and let it predict if you are among the more than 1 billion users of LinkedIn.")
     st.write("Information entered is not stored and will be cleared when you exit the app.")
 
-name = st.text_input("What is your name? (Optional)", value = "")    
+name = st.text_input("What is your name? (Optional)", value = "")   
 user_income = st.selectbox("What is your current income level?", 
                            options=["",
-                                    "Less than 10000",
+                                    "Less than 10,000",
                                     "10,000 to under 20,000",
                                     "20,000 to under 30,000",
                                     "30,000 to under 40,000",
