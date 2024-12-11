@@ -183,5 +183,3 @@ user_age = st.slider("How old are you?",
 if st.button("Submit"):
     sent_app(name, user_income, user_education, user_parent, user_married,
              user_female, user_age)
-    
-# test
